@@ -14,7 +14,8 @@ Test: "will assign each place a unique numbered ID, incrementing by 1"
 Code: assignID(place1);
 Expected Ouput: 1
 
-Describe findPlace();
+Describe: findPlace();
 Test: "will enable user to retrieve a place stored in the PlacesBeen object"
 code: findPlace(place1);
 Expected Output: return place1
+
