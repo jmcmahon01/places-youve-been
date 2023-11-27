@@ -1,10 +1,17 @@
 //Business Logic for Places I've Been
 function PlacesBeen() {
   this.places = {};
+  this.currentId = 0;
 }
 PlacesBeen.prototype.addPlace = function (place) {
-  this.places[place.placeName] = place;
+  place.id = this.assignId();
+  this.places[place.id] = place;
 }
+PlacesBeen.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+}
+
 
 //Business Logic for Places
 function Place(placeName, placeLocation, placeLandmarks, placeNotes) {

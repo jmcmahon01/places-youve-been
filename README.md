@@ -8,3 +8,8 @@ Describe: addPlace();
 Test: "Will add places as objects into the PlacesBeen constructor function"
 Code: PlacesBeen.addPlace(place1);
 Expected Output: 
+
+Describe: assignId();
+Test: "will assign each place a unique numbered ID, incrementing by 1"
+Code: assignID(place1);
+Expected Ouput: 1
