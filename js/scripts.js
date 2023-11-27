@@ -11,7 +11,12 @@ PlacesBeen.prototype.assignId = function () {
   this.currentId += 1;
   return this.currentId;
 }
-
+PlacesBeen.prototype.findPlace = function (id) {
+    if (this.places[id] !== undefined) {
+      return this.places [id];
+    }
+    return false;
+};
 
 //Business Logic for Places
 function Place(placeName, placeLocation, placeLandmarks, placeNotes) {
