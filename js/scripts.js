@@ -32,6 +32,20 @@ Place.prototype.placeDetails = function () {
 // User Interface Logic ---------
 let placesBeen = new PlacesBeen();
 
+function listPlaces(placesToDisplay) {
+  let listPlacesDiv = document.querySelector("div#list-places");
+  listPlacesDiv.innerText = null;
+  const ul = document.createElement("ul");
+  Object.keys(placesToDisplay.places).forEach(function (key) {
+    const place = placesToDisplay.findPlace(key);
+    const li = document.createElement("li");
+    li.append(place.placeDetails());
+    li.setAttribute("id", place.id);
+    ul.append(li);
+  });
+  listPlacesDiv.append(ul);
+}
+
 function handleFormSubmission(event) {
   event.preventDefault();
   const inputtedName = document.querySelector("input#new-place-name").value;
@@ -40,7 +54,7 @@ function handleFormSubmission(event) {
   const inputtedNotes = document.querySelector("input#notes").value;
   let newPlace = new Place(inputtedName, inputtedLocation, inputtedLandmark, inputtedNotes);
   placesBeen.addPlace(newPlace);
-  console.log(placesBeen.places);
+  listPlaces(placesBeen);
 }
 
 window.addEventListener("load", function () {
